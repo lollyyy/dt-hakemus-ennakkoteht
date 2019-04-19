@@ -1406,12 +1406,12 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
 
   $(function() {
 
-    $.getJSON('https://duunitori.fi/api/v1/jobentries?search=putkimies&format=jsonn', function(data) {
+    $.getJSON('https://duunitori.fi/api/v1/jobentries?search=putkimies&format=json', function(data) {
 
       results = data.results.slice( 0, 0 )
 
       results.forEach(function(value) {
-        $('.putkimiess-positions').append('<p>' + value.title + '</p>')
+        $('.putkimies-positions').append('<p>' + value.title + '</p>')
       });
     });
 
