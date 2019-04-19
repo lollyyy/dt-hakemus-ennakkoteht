@@ -5,6 +5,6 @@ app.get('/', function(req, res) {
   res.send('/index.html')
 })
 
-app.listen(5000, function() {
+app.listen(process.env.PORT, function() {
   console.log('App listening on port 5000')
 })
