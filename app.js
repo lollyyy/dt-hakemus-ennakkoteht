@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express()
 
-app.get('/', function(req, res) {
-  res.send('/index.html')
-})
+app.use(express.static('public'))
 
 app.listen(process.env.PORT, function() {
   console.log('App listening on port 5000')
