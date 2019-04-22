@@ -14,6 +14,6 @@ request('https://duunitori.fi/api/v1/jobentries?search=harjoittelija&format=json
 })
 
 
-app.listen(5000, function() {
+app.listen(process.env.PORT, function() {
   console.log('App listening on port 5000')
 })
