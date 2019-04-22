@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/lollyyy/dt-hakemus-ennakkoteht#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "request": "^2.88.0",
+    "rss": "^1.2.2"
   }
 }

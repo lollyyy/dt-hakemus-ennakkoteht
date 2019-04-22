@@ -90,6 +90,8 @@
 
 <link rel="stylesheet" href="https://skyhood-duunitori5.s3.amazonaws.com/static/css/jquery-ui.min.css" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="https://skyhood-duunitori5.s3.amazonaws.com/static/css/jquery-ui.min.css"></noscript>
 <link rel="stylesheet" href="https://skyhood-duunitori5.s3.amazonaws.com/static/web/css/main-fa21109122.css" media="none" onload="if(media!='all')media='all'"><noscript><link rel="stylesheet" href="https://skyhood-duunitori5.s3.amazonaws.com/static/web/css/main.css?v=131118v2"></noscript>
+
+<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body class="notouch">
@@ -1082,6 +1084,7 @@ Seuraavaksi olisi kaksi erilaista tehtävää, jotka voit omalla tyylillä suori
 </div>
 <div class="grid-sandbox">
 <h2><img class="mark" src="https://skyhood-duunitori5.s3.amazonaws.com/static/web/images/ic_mark_slash.svg">Listaa harjoittelupaikat tähän</h2>
+<div class="trainee-positions"></div>
 </div>
 </div>
 <div class="1/1 1/2--lap-and-up grid__cell">
@@ -1402,22 +1405,49 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
         });
   </script>
 <script type="text/javascript" src='https://skyhood-duunitori5.s3.amazonaws.com/static/web/js/jquery.js'></script>
+<script type="text/javascript" src="date.js"></script>
 <script type="text/javascript">
 
   $(function() {
-
+    //Fetch JSON data from API
     $.getJSON('https://duunitori.fi/api/v1/jobentries?search=putkimies&format=json', function(data) {
 
-      results = data.results.slice( 0, 0 )
+      const results = data.results
 
+      //Loop through JSON result array and append to putkimies-positions div
       results.forEach(function(value) {
-        $('.putkimies-positions').append('<p>' + value.title + '</p>')
+        $('.putkimies-positions').append(
+          '<h2 class="company_name">' + value.company_name + '<h2>'
+        + '<h3>' + value.heading + '</h3>'
+        + '<p>' + value.municipality_name + '</p>'
+        + '<p> Julkaistu ' + $.date(value.date_posted) + '</p>')
       });
     });
-
   });
 
 </script>
+
+<script type="text/javascript">
+    //Get JSON response from server
+    $.get( "/trainee", function( data ) {
+      //Store results in new array
+      const results = data.results
+      //Loop through results array
+      results.forEach(function (result) {
+        //Append data to div "trainee-positions"
+        $('.trainee-positions').append(
+          '<a class="trainee">'
+          + '<div class="company_name">' + '<span>' + result.company_name + '</span>' + '</div>'
+          + '<h3 class="position-name">' + result.heading + '</h3>'
+          + '<span class="additional">' + result.municipality_name + '-' + '</span>'      
+          + '<span class="additional">' + $.date(result.date_posted) + '</span>'
+          + '</a>')
+        console.log(result.heading)
+      })
+    })
+
+</script>
+
 <script type="text/javascript">
 
   $(function() {
