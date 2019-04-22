@@ -1417,10 +1417,12 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
       //Loop through JSON result array and append to putkimies-positions div
       results.forEach(function(value) {
         $('.putkimies-positions').append(
-          '<h2 class="company_name">' + value.company_name + '<h2>'
-        + '<h3>' + value.heading + '</h3>'
-        + '<p>' + value.municipality_name + '</p>'
-        + '<p> Julkaistu ' + $.date(value.date_posted) + '</p>')
+          '<a class="listing" href="https://duunitori.fi/tyopaikat/tyo/' + value.slug + '">'
+          + '<div class="company_name">' + '<span>' + value.company_name + '</span>' + '</div>'
+          + '<h3 class="position-name">' + value.heading + '</h3>'
+          //+ '<br><span class="additional">' + value.municipality_name + '-' + '</span>'
+          //+ '<span class="additional">' + $.date(value.date_posted) + '</span>'
+          + '</a>')
       });
     });
   });
@@ -1436,11 +1438,12 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
       results.forEach(function (result) {
         //Append data to div "trainee-positions"
         $('.trainee-positions').append(
-          '<a class="trainee">'
+          //Wrap the whole element in a link to the job listing
+          '<a class="listing" href="https://duunitori.fi/tyopaikat/tyo/' + result.slug + '">'
           + '<div class="company_name">' + '<span>' + result.company_name + '</span>' + '</div>'
           + '<h3 class="position-name">' + result.heading + '</h3>'
-          + '<span class="additional">' + result.municipality_name + '-' + '</span>'
-          + '<span class="additional">' + $.date(result.date_posted) + '</span>'
+          //+ '<br><span class="additional">' + result.municipality_name + '-' + '</span>'
+          //+ '<span class="additional">' + $.date(result.date_posted) + '</span>'
           + '</a>')
         console.log(result.heading)
       })

@@ -5,12 +5,19 @@
   overflow: scroll;
 }
 
-.trainee {
+.listing {
   display: flex;
   align-content: center;
   width: 100%;
   border: 1px solid #eee;
   padding: 0.7rem;
+  height: auto;
+  overflow-x: hidden;
+}
+
+.listing:hover {
+  border-left: 4px solid #00c4b1;
+  background: rgba(0,200,177,.04);
 }
 
 .company_name {
@@ -19,6 +26,8 @@
   float: left;
   width: 6rem;
   height: 6rem;
+  max-height: 6rem;
+  min-width: 6rem;
   line-height: 1.2;
   display: flex;
   justify-content: center;
@@ -27,6 +36,7 @@
   word-wrap: break-word;
   hyphens: auto;
   padding: 6px;
+
 }
 
 .company_name span {
@@ -38,12 +48,15 @@
 .position-name {
   color: #222;
   margin: 1rem;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .additional {
   color: #9e9ea0;
   font-size: 1.35rem;
   position: relative;
-  top: 50%;
-  right: 25%;
+  top: 3rem;
+  right: 17.5rem;
+  height: 50%;
 }
