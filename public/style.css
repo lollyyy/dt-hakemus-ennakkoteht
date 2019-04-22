@@ -43,6 +43,7 @@
   color: #3e3e41;
   font-size: 1.1rem;
   font-weight: 600;
+  max-width: 6rem;
 }
 
 .position-name {
