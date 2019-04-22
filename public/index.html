@@ -1431,9 +1431,10 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
 
 <script type="text/javascript">
     //Get JSON response from server
-    $.get( "/trainee", function( data ) {
+    $.get( "/trainee", function(data) {
       //Store results in new array
       const results = data.results
+
       //Loop through results array
       results.forEach(function (result) {
         //Append data to div "trainee-positions"
@@ -1445,7 +1446,6 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
           //+ '<br><span class="additional">' + result.municipality_name + '-' + '</span>'
           //+ '<span class="additional">' + $.date(result.date_posted) + '</span>'
           + '</a>')
-        console.log(result.heading)
       })
     })
 
