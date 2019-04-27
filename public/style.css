@@ -46,6 +46,10 @@
   max-width: 6rem;
 }
 
+.textbox {
+  overflow: hidden;
+}
+
 .position-name {
   color: #222;
   margin: 1rem;
@@ -56,8 +60,8 @@
 .additional {
   color: #9e9ea0;
   font-size: 1.35rem;
+  float:left;
   position: relative;
-  top: 3rem;
-  right: 17.5rem;
+  left: 1rem;
   height: 50%;
 }

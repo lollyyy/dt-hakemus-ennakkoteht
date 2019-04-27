@@ -1,6 +1,9 @@
 const express = require('express')
 const request = require('request')
 const app = express()
+const herokuPort = "process.env.PORT"
+const local = 5000
+
 
 app.use(express.static('public'))
 
@@ -14,6 +17,8 @@ request('https://duunitori.fi/api/v1/jobentries?search=harjoittelija&format=json
 })
 
 
-app.listen(process.env.PORT, function() {
-  console.log('App listening on port 5000')
+
+
+app.listen(herokuPort, function() {
+  console.log('App listening on 5000')
 })
