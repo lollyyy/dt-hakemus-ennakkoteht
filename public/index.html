@@ -1442,7 +1442,7 @@ jQuery.date = function(dateObject) {
           + '<div class="textbox">'
           + '<h3 class="position-name">' + value.heading + '</h3>'
           + '<span class="additional">' + value.municipality_name + '-' + '</span>'
-          + '<span class="additional">' + $.date(value.date_posted) + '</span>'
+          + '<span class="additional">' + jQuery.date(value.date_posted) + '</span>'
           + '</div>'
           + '</a>')
       });
@@ -1467,7 +1467,7 @@ jQuery.date = function(dateObject) {
           + '<div class="textbox">'
           + '<h3 class="position-name">' + result.heading + '</h3>'
           + '<span class="additional">' + result.municipality_name + '-' + '</span>'
-          + '<span class="additional">' + $.date(result.date_posted) + '</span>'
+          + '<span class="additional">' + jQuery.date(result.date_posted) + '</span>'
           + '</div>'
           + '</a>')
       })
