@@ -1408,7 +1408,7 @@ Valitse suojaustaso valikon alaosan kohdasta Evästeet.</p>
 <script type="text/javascript">
 
 //Function to present dates in more human-readable form
-jQuery.date = function(dateObject) {
+$.date = function(dateObject) {
   var d = new Date(dateObject);
   var day = d.getDate();
   var month = d.getMonth() + 1;
@@ -1442,7 +1442,7 @@ jQuery.date = function(dateObject) {
           + '<div class="textbox">'
           + '<h3 class="position-name">' + value.heading + '</h3>'
           + '<span class="additional">' + value.municipality_name + '-' + '</span>'
-          + '<span class="additional">' + jQuery.date(value.date_posted) + '</span>'
+          + '<span class="additional">' + $.date(value.date_posted) + '</span>'
           + '</div>'
           + '</a>')
       });
@@ -1458,6 +1458,7 @@ jQuery.date = function(dateObject) {
       const results = data.results
 
       //Loop through results array
+      $(document).ready(function() {
       results.forEach(function (result) {
         //Append data to div "trainee-positions"
         $('.trainee-positions').append(
@@ -1467,11 +1468,12 @@ jQuery.date = function(dateObject) {
           + '<div class="textbox">'
           + '<h3 class="position-name">' + result.heading + '</h3>'
           + '<span class="additional">' + result.municipality_name + '-' + '</span>'
-          + '<span class="additional">' + jQuery.date(result.date_posted) + '</span>'
+          + '<span class="additional">' + $.date(result.date_posted) + '</span>'
           + '</div>'
           + '</a>')
       })
     })
+  })
 
 </script>
 
